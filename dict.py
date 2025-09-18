@@ -1,3 +1,5 @@
+# diccionario anidado
+# un diccionario dentro de otro diccionario
 devices = {
     "routers": [
         {
@@ -30,15 +32,19 @@ devices = {
     ]
 }
 
+# imprimo el diccionario completo
 print ("Diccionario: ", devices)
 
+#º imprimo solo los routers
 print ("Routers: ", devices["routers"])
 
+# imprimo el primer router
 print ("Primer Router: ", devices.get("routers", "No hay routers")[0].get("name", "No hay nombre"))
 
-
+# Creo un nuevo diccionario con datos del primer router
 dic2 = {}
 dic2["key1"] = devices.get("routers", "No hay routers")[0].get("name", "No hay nombre")
 dic2["key2"] = devices.get("routers", "No hay routers")[0].get("ip", "No hay IP")
 
+# imprimo el nuevo diccionario
 print ("Diccionario 2: ", dic2)

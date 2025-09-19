@@ -48,3 +48,6 @@ dic2["key2"] = devices.get("routers", "No hay routers")[0].get("ip", "No hay IP"
 
 # imprimo el nuevo diccionario
 print ("Diccionario 2: ", dic2)
+
+### ver en el libro, como se itera sobre un diccionario y un diccionario anidado
+

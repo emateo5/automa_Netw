@@ -1,0 +1,33 @@
+  routers:
+    - name: R1
+      ip: 192.168.1.1
+      mask: 255.255.255.0
+      vendor: Cisco
+      model: ISR
+      interfaces:
+        - name: Gig0/0
+          ip: 192.168.2.1
+          mask: 255.255.255.0
+        - name: Gig0/1
+          ip: 192.168.2.2
+          mask: 255.255.255.0
+      location:
+        rack: 12
+        position: 1
+      activo: true
+    - name: R2
+      ip: 192.168.1.2
+      mask: 255.255.255.0
+      vendor: Cisco
+      model: ISR
+      interfaces:
+        - name: Gig0/0
+          ip: 192.168.3.1
+          mask: 255.255.255.0
+        - name: Gig0/1
+          ip: 192.168.3.2
+          mask: 255.255.255.0
+      location:
+        rack: 12
+        position: 2
+      activo: true

@@ -7,6 +7,7 @@
 - Python Basics: ejemplos basicos que muestran como crear e importar scripts y clases Python
 - json: ejemplos de serializacion y des serializacion. Manejo de archivos JSON y Diccionarios
 - yaml: manejo de archivos YAML
+- Netmiko: Ejemplos de configuracion con Netmiko
 
 ### Libros
 

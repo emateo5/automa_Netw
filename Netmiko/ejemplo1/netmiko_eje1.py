@@ -33,5 +33,5 @@ try:
     # Cerrar la conexión
     connection.disconnect()
 except Exception as error:
-    print(f"Error al conectar: {error}")
+    print(f"Error en Netmiko: {error}")
     exit(1)

@@ -61,6 +61,7 @@ class NetmikoInicial():
             print(f"Error al enviar el comando {command}: {error}")
             return None
 
+    # Verifica el estado de la conexión
     def connection_status(self, connection: ConnectHandler) -> bool | None:
         try:
             return connection.is_alive()
@@ -68,6 +69,7 @@ class NetmikoInicial():
             print(f"Error al verificar el estado de la conexión: {error}")
             return None
 
+    # Parsear la configuración usando CiscoConfParse
     def parse_running_config(self, config_output: str) -> list | None:
         try:
             output_list = config_output.splitlines()
@@ -89,7 +91,7 @@ class NetmikoInicial():
             print(f"Error al parsear la configuración: {error}")
             return None
         
-
+    # Cerrar la conexión
     def disconnect(self, connection: ConnectHandler) -> bool | None:
         try:
             connection.disconnect()

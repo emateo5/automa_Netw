@@ -8,9 +8,9 @@ from ciscoconfparse import CiscoConfParse
 # Definir los parámetros de conexión
 device = {
     'device_type': 'cisco_ios',
-    'host': 'X.X.X.X',
-    'username': 'xxxx',
-    'password': 'xxxx',
+    'host': '10.2.0.103',
+    'username': 'netsim',
+    'password': 'netsim1234',
     'ssh_config_file': '~/.ssh/config'
 }
 
@@ -44,7 +44,20 @@ try:
                     print (f"  {ip.text}")
             else:
                 print ("  No tiene IP asignada")
-        
+        print ("-"*40)
+
+        # Otra forma de buscar las IPs de una interfaz específica (o cualquier objeto child de cualquier objeto parent)
+        interfaces = parse.find_objects(r"^interface") # Buscar todas las líneas que comienzan con "interface"
+        for inter in interfaces:
+            list_interfaces = inter.text.split(" ")
+            print (f"Interfaz: {list_interfaces[1]}")
+            tiene_ip = parse.find_child_objects(r"^interface "+list_interfaces[1], r"^\s+ip address") # Buscar líneas que contienen "ip address" dentro de la interfaz
+            if tiene_ip:
+                for ip in tiene_ip:
+                    print (f"  {ip.text}")
+            else:
+                print ("  No tiene IP asignada")
+
     # Cerrar la conexión
     connection.disconnect()
 except Exception as error:

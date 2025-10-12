@@ -11,9 +11,9 @@ print (file_commands)
 # Definir parámetros de conexión
 cisco_device = {
     'device_type': 'cisco_ios',
-    'host': '10.2.0.103',
-    'username': 'netsim',
-    'password': 'netsim1234',
+    'host': 'X.X.X.X',
+    'username': 'xxxx',
+    'password': 'xxxx',
     'ssh_config_file': '~/.ssh/config'
 }
 

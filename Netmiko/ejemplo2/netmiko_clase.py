@@ -10,7 +10,7 @@ class ConfigurationClass():
         try:
             connection = ConnectHandler(**device_params)
             if connection.is_alive:
-                print(f"Conexión exitosa al dispositivo {device_params.get('host')}")
+                print(f"Conexión exitosa al dispositivo '{device_params.get('host')}'")
             else:
                 print("Conexión no establecida.")
                 exit(1)
@@ -18,12 +18,15 @@ class ConfigurationClass():
         except (NetmikoTimeoutException, NetmikoAuthenticationException) as error:
             print(f"Error de conexión: '{error}'")
             exit(1)
+        except Exception as error:
+            print(f"Error inesperado: '{error}'")
+            exit(1)
 
     # Send configuration from a file
     def send_config_from_file(self, connection: ConnectHandler, file_path: str) -> str:
         if connection:
             output = connection.send_config_from_file(file_path)
-            print (f"Configuración enviada desde el archivo {file_path}")
+            print (f"Configuración enviada desde el archivo '{file_path}'")
             return output
         else:
             print("No hay conexión establecida.")
@@ -50,7 +53,7 @@ class ConfigurationClass():
             output_list = output.splitlines()
             for ind, line in enumerate(output_list):
                 if "^" in line:
-                    print (f"Error en el comando: {output_list[ind-1]}")
+                    print (f"Error en el comando: '{output_list[ind-1]}'")
             return True
         else:
             print("Configuración enviada correctamente")
@@ -59,7 +62,7 @@ class ConfigurationClass():
     # Send a show command to the device
     def send_command(self, connection: ConnectHandler, command: str) -> str:
         if connection:
-            output = connection.send_command(command, expect_string=r'#', usetextfsm=True)
+            output = connection.send_command(command, expect_string=r'#', use_textfsm=True)
             return output
         else:
             print("No hay conexión establecida.")
@@ -91,10 +94,11 @@ class ConfigurationClass():
         template = env.get_template(template_file)
         # Renderizar el template con los datos
         output = template.render(data)
+        # Guardar la configuración generada en un archivo
         try:
             with open(config_file, 'w') as f:
                 f.write(output)
-            print(f"Configuración guardada en el archivo {config_file}")
+            print(f"Configuración generada desde '{template_file}' y guardada en el archivo '{config_file}'")
         except Exception as error:
-            print(f"Error al guardar el archivo: {error}")
+            print(f"Error al guardar el archivo: '{error}'")
             exit(1)

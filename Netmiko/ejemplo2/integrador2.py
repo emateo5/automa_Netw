@@ -32,7 +32,7 @@ def config_from_set():
     config.disconnect(connection)
 
 if __name__ == "__main__":
-    print("Configuración desde archivo:")
+    print("Configuración desde archivo")
     config_from_file()
-    print("\nConfiguración desde lista de comandos:")
+    print("\nConfiguración desde lista de comandos")
     config_from_set()

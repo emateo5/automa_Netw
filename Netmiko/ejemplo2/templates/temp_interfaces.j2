@@ -1,0 +1,10 @@
+{% for inter in interfaces -%}
+interface {{ inter.name }} 
+  ip address {{ inter.ip }} {{ inter.mask }}
+  description {{ inter.description }}
+{%- if inter.shutdown %}
+  shutdown
+{%- else %}
+  no shutdown
+{%- endif %}
+{% endfor %}

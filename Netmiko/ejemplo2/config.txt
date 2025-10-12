@@ -1,0 +1,8 @@
+interface loopback1 
+  ip address 10.1.0.1 255.255.255.255
+  description Loopback 1
+  no shutdown
+interface loopback2 
+  ip address 10.1.0.2 255.255.255.255
+  description Loopback 2
+  shutdown

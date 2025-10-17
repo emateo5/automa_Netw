@@ -184,13 +184,13 @@ modelo:
     devices:
       - hostname: "SW_Bld_A"
         management:
-          ip: "10.2.0.103"
+          ip: "X.X.X.X"
           interface: "GigabitEthernet0/0"
         connection:
           device_type: "cisco_ios"
-          host: "10.2.0.103"
-          username: "netsim"
-          password: "netsim1234"
+          host: "X.X.X.X"
+          username: "xxxx"
+          password: "xxxx"
           global_delay_factor: 1
           ssh_config_file: "~/.ssh/config"
         interfaces:

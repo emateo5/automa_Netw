@@ -1,0 +1,20 @@
+{# uso de variables dentro y fuera de un bucle: namespace #}
+{% set ns = namespace(activas=0, inactivas=0) %}
+
+{% for inter in interfaces %}
+interface {{ inter.name }}
+  ip address {{ inter.ip }} {{ inter.mask }}
+{% if inter.shutdown %}
+  shutdown
+  {% set ns.inactivas = ns.inactivas + 1 %}
+{% else %}
+  no shutdown
+  {% set ns.activas = ns.activas + 1 %}
+{% endif %}
+!
+{% endfor %}
+
+{# Resumen #}
+Interfaces activas: {{ ns.activas }}
+Interfaces inactivas: {{ ns.inactivas }}
+Total de interfaces: {{ ns.activas + ns.inactivas }}

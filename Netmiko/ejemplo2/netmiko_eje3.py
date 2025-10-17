@@ -2,7 +2,7 @@
 
 from netmiko import ConnectHandler
 from jinja2 import Environment, FileSystemLoader
-from datos_config import datos
+from datos_config import datos_config as datos
 
 # Datos de conexion al dispositivo
 cisco_device = {
@@ -23,7 +23,7 @@ template = env.get_template('temp_interfaces.j2')
 output = template.render(datos)
 
 # Guardar la configuración generada en un archivo
-with open('config.txt', 'w') as f:
+with open('config.html', 'w') as f:
     f.write(output)
 
 # Conectar al dispositivo y enviar la configuración

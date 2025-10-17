@@ -10,6 +10,7 @@
 - Netmiko: Ejemplos de configuracion con Netmiko
 - **integrador1.py**: ejercicio integrador Netmiko Part1 (send show commands)
 - **integrador2.py**: ejercicio integrador Netmiko Part1 (send config commands)
+- **sim_caso**: simulacion CU automatizacion Data Center Network.
 
 ### Libros
 

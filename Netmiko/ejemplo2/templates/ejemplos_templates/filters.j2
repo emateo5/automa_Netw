@@ -1,0 +1,31 @@
+{# template filters.j2 #}
+
+{% set frutas = ['manzana', 'pera', 'naranja'] %}
+Lista: {{ frutas | join(',') }} {# 'manzana,pera,naranja' #}
+Cantidad: {{ frutas | length }}
+Primera fruta: {{ frutas | first | upper }}
+Última fruta: {{ frutas | last | upper }}
+
+{# Ejemplos de filtros comunes en Jinja2 #}
+{# ---
+| Filtro       | Descripción                | Ejemplo           |                       | Resultado    |
+| ------------ | -------------------------- | ----------------- | --------------------- | ------------ |
+| `upper`      | Convierte a mayúsculas     | `{{ 'hola'        | upper }}`             | `HOLA`       |
+| `lower`      | A minúsculas               | `{{ 'HOLA'        | lower }}`             | `hola`       |
+| `capitalize` | Primera letra mayúscula    | `{{ 'mundo'       | capitalize }}`        | `Mundo`      |
+| `title`      | Cada palabra con mayúscula | `{{ 'hola mundo'  | title }}`             | `Hola Mundo` |
+| `replace`    | Reemplaza texto            | `{{ '10.0.0.1'    | replace('.', '-') }}` | `10-0-0-1`   |
+| `trim`       | Quita espacios             | `{{ '  hola  '    | trim }}`              | `hola`       |
+| `truncate`   | Trunca texto               | `{{ 'abcdefghij'  | truncate(5) }}`       | `abcde...`   |
+| `length`     | Longitud                   | `{{ 'hola'        | length }}`            | `4`          |
+| `join`       | Une lista en string        | `{{ ['a','b','c'] | join(', ') }}`        | `a, b, c`    |
+| `int`        | Convierte a entero         | `{{ '42'          | int }}`               | `42`         |
+| `float`      | Convierte a float          | `{{ '3.14'        | float }}`             | `3.14`       |
+| `round`      | Redondea número            | `{{ 3.14159       | round(2) }}`          | `3.14`       |
+| `sort`       | Ordena lista               | `{{ frutas        | sort }}`              | `['manzana', 'naranja', 'pera']` |
+| `unique`     | Elimina duplicados         | `{{ [1,2,2,3]     | unique }}`            | `[1,2,3]`                        |
+| `reverse`    | Invierte orden             | `{{ frutas        | reverse }}`           | `['naranja', 'pera', 'manzana']` |
+| `first`      | Primer elemento            | `{{ frutas        | first }}`             | `manzana`                        |
+| `last`       | Último elemento            | `{{ frutas        | last }}`              | `naranja`                        |
+--- #}
+

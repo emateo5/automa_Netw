@@ -1,0 +1,11 @@
+{# Interface Access Configuration Template #}
+!
+{% for interface in interfaces -%}
+{% if interface.mode == "access" -%}
+interface {{ interface.name }}
+  description {{ interface.description }}
+  switchport mode {{ interface.mode }}
+  switchport access vlan {{ interface.vlan }}
+!
+{% endif -%}
+{% endfor -%}

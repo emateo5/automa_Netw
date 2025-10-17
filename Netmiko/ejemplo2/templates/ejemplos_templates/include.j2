@@ -1,0 +1,10 @@
+{# template reutilization include.j2 #}
+{% for iface in router.interfaces %}
+  {% include 'included.j2' with inter=iface %}
+{% endfor %}
+
+
+{% for interface in switches.interfaces %}
+  {% include 'included.j2' with inter=interface %}
+{% endfor %}
+

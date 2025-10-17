@@ -1,0 +1,9 @@
+{# templateion included.j2 #}
+interface {{ inter.name }}
+  ip address {{ inter.ip }} {{ inter.mask }}
+  description {{ inter.description }}
+{% if inter.shutdown %}
+  shutdown
+{% else %}
+  no shutdown
+{% endif %}

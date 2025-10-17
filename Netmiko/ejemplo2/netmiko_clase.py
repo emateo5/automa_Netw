@@ -42,10 +42,6 @@ class ConfigurationClass():
             print("No hay conexión establecida.")
             return None
 
-    # Send configuration from a list of commands with multiline support
-    def send_config_multiline(self, connection: ConnectHandler, config_commands: list) -> str:
-        pass
-
     # Check for configuration errors in the output
     def check_config_errors(self, output: str) -> bool:
         if "Invalid input" in output:

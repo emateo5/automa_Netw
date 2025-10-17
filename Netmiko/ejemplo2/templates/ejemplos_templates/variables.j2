@@ -1,0 +1,51 @@
+{# ejemplos de uso de variables y filtros en jinja2 #}
+
+{# variables simples #}
+{{ ciudad }}
+{{ usuario.ip }}
+{{ servidor['ip'] }}
+{{ precio * cantidad }}
+{{ nombre | upper }}
+{{ nombre | capitalize }}
+{{ descripcion | truncate(20) }}
+{{ fecha | date("d/m/Y") }}
+nombre : {{ nombre | default('Desconocido') }}
+
+{# definición de variables #}
+{% set descuento = 0.1 %}
+{% set precio = 100 %}
+{% set cantidad = 3 %}
+
+{# cálculo del total #}
+El precio con descuento es {{ precio * (1 - descuento) }}.
+{% set total = precio * cantidad %}
+El total es {{ total }}
+
+{# Estructuras #}
+{% set items = ['router', 'switch', 'firewall'] %}
+Primero: {{ items[0] }}
+
+{# variables especiales #}
+{% for item in items %}
+  {{ loop.index }}. {{ item }}
+    {% if loop.first %}
+        (primero)
+    {% endif %}
+    {% if loop.last %}
+        (último)
+    {% endif %}
+{% endfor %}
+
+{# composicion de variables y bucle for #}
+{% for i in range(3) %}
+  {% set mensaje = "Iteración " ~ i %}
+  {{ mensaje }}
+{% endfor %}
+
+{# alcance de las variables #}
+{% set mensaje = "hola" %}
+{% for i in range(3) %}
+  {% set mensaje = "Iteración " ~ i %}
+  {{ mensaje }}
+{% endfor %}
+{{ mensaje }} {# sigue siendo "hola" #}

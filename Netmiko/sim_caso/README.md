@@ -213,7 +213,7 @@ modelo:
             config_file: "int_trunk.cfg"
 ```
 
-**Innovación: config_spec**
+**Innovación: config_spec:**
 
 La sección `config_spec` permite definir dinámicamente qué configuraciones generar:
 

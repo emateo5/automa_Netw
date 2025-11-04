@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Ejemplo Schema",
+    "type": "object",
+    "properties": {
+        "modelo": {
+            "type": "object",
+            "properties": {
+                "metadatos": {
+                    "type": "object",
+                    "properties": {
+                        "version": {
+                            "type": "string",
+                            "maxLength": 20
+                        },
+                        "autor": {
+                            "type": "string",
+                            "maxLength": 50
+                        },
+                        "fecha_creacion": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    "required": [
+                        "version",
+                        "autor",
+                        "fecha_creacion"
+                    ]
+                },
+                "devices": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "hostname": {
+                                "type": "string",
+                                "maxLength": 20
+                            },
+                            "ip": {
+                                "type": "string",
+                                "oneOf": [
+                                    {
+                                        "format": "ipv4"
+                                    },
+                                    {
+                                        "format": "ipv6"
+                                    }
+                                ]
+                            },
+                            "interfaces": {
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "vlans": {
+                                "type": [
+                                    "array",
+                                    "null"
+                                ],
+                                "items": {
+                                    "type": "integer",
+                                    "minimum": 1,
+                                    "maximum": 4096
+                                },
+                                "minItems": 1
+                            },
+                            "trunk": {
+                                "type": "boolean",
+                                "enum": [
+                                    true,
+                                    false
+                                ]
+                            }
+                        },
+                        "required": [
+                            "hostname",
+                            "ip",
+                            "interfaces",
+                            "vlans",
+                            "trunk"
+                        ]
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "metadatos",
+                "devices"
+            ]
+        }
+    },
+    "required": [
+        "modelo"
+    ]
+}

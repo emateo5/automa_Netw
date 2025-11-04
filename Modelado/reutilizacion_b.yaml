@@ -1,0 +1,14 @@
+
+commands: &base_commands
+  - Iniciando
+  - Ejecutando tarea principal
+  - Finalizado
+
+job1:
+  steps: *base_commands
+
+job2:
+  steps:
+    - *base_commands
+    - Tarea adicional
+

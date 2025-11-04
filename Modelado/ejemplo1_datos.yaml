@@ -1,0 +1,10 @@
+# ejemplo2_datos.yaml a validar con ejemplo2_schema.json
+
+modelo:
+  metadatos:
+    version: "1.0"
+    autor: "Ed Scrimaglia"
+    fecha_creacion: "2024-06-15"
+    devices:
+      - "sw1"
+    active: true

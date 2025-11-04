@@ -1,0 +1,19 @@
+# ejemplo2_datos.yaml a validar con ejemplo2_schema.json
+
+modelo:
+  metadatos:
+    version: "1.0"
+    autor: "Ed Scrimaglia"
+    fecha_creacion: "2024-06-15"
+  devices:
+    - hostname: "SW_Bld_A"
+      ip: "1.1.1.1"
+      interfaces: 4
+      vlans: [10,20,30,50]
+      trunk: true
+    - hostname: "SW_Bld_B"
+      ip: "2001:0db8:85a3:0000:0000:8a2e:0370:0"
+      interfaces: 1
+      vlans: null
+      trunk: false
+    

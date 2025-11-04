@@ -1,0 +1,14 @@
+defaults: &defaults
+  user: admin
+  password: secret
+  timeout: 30
+
+database1:
+  <<: *defaults
+  host: db1.example.com
+
+database2:
+  <<: *defaults
+  host: db2.example.com
+  timeout: 60
+

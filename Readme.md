@@ -4,9 +4,11 @@
 
 ### Código
 
-- Python Basics: ejemplos basicos que muestran como crear e importar scripts y clases Python
+- Python: ejemplos basicos que muestran como crear e importar scripts y clases Python
 - json: ejemplos de serializacion y des serializacion. Manejo de archivos JSON y Diccionarios
 - yaml: manejo de archivos YAML
+- Ansible: ejemplos de codido Ansible
+- Netmiko: ejemplos de codigo Netmiko
 
 #### Netmiko
 
@@ -20,6 +22,16 @@
 - **Modelado**: Modelo de Datos de un CU
 - **json_schema**: estructura y restricciones de los datos de un CU
 - **reutilización**: reutilizacion de datos en YAML
+
+#### Ansible
+
+- **ejemplo1**: ejemplo basico de codigo ansible
+
+#### Presentaciones
+
+- **IaC**: conceptos de IaC. Automatización de infraestructura
+- **Ansible**: Conceptos de Ansible
+- **Json-Schema**: Validación de datos y construccion de modelos de datos
 
 ### Libros
 

@@ -1,0 +1,11 @@
+datos_devices: &common_devices
+  device_type: cisco_ios
+  user: admin
+  password: secret
+  global_delay_factor: 2
+
+devices:
+  - host: 10.1.1.1
+    <<: *common_devices
+  - host: 10.1.1.2
+    <<: *common_devices

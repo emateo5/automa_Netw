@@ -1,0 +1,23 @@
+---
+- name: Playbook para ver archivo de configuracion dispositivos Cisco IOS
+  hosts: cisco_ios
+  gather_facts: no
+
+  vars:
+    ansible_user: netsim
+    ansible_password: netsim1234
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_become_password: netsim1234
+
+  tasks:
+    - name: Obtener la configuracion del dispositivo
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: device_info
+
+    - name: Mostrar informacion del dispositivo
+      ansible.builtin.debug:
+        var: device_info.stdout_lines
+  

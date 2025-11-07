@@ -3,8 +3,8 @@
 modelo:
   metadatos:
     version: "1.0"
-    autor: "Ed Scrimaglia"
-    fecha_creacion: "2024-06-15"
-    devices:
-      - "sw1"
+    autores: "Ed Scrimaglia"
+    fecha_creacion: "2024-06-20"
+    devices: null
     active: true
+

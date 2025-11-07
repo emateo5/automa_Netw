@@ -53,23 +53,17 @@
                                 "minimum": 1
                             },
                             "vlans": {
-                                "type": [
-                                    "array",
-                                    "null"
-                                ],
+                                "type": ["array","null"],
                                 "items": {
                                     "type": "integer",
-                                    "minimum": 1,
-                                    "maximum": 4096
+                                    "minimum": 5,
+                                    "maximum": 50
                                 },
                                 "minItems": 1
                             },
                             "trunk": {
                                 "type": "boolean",
-                                "enum": [
-                                    true,
-                                    false
-                                ]
+                                "default": false
                             }
                         },
                         "required": [

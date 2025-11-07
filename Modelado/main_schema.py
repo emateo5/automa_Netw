@@ -36,7 +36,6 @@ def main(modelo: str, esquema: str) -> None:
     except ValidationError as error:
         print(f"{' ' * 4}-> El modelo de datos es inválido:\n{error.message}\nPath: {list(error.path)}\nValidator: {error.validator}")
 
-
 if __name__ == "__main__":
     # Obtener los parámetros desde la línea de comandos, sys.argv[0] es el nombre del script
     params = sys.argv

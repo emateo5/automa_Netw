@@ -1,4 +1,4 @@
-defaults: &defaults
+defaults_param: &defaults
   user: admin
   password: secret
   timeout: 30

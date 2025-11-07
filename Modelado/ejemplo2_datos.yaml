@@ -7,7 +7,7 @@ modelo:
     fecha_creacion: "2024-06-15"
   devices:
     - hostname: "SW_Bld_A"
-      ip: "1.1.1.1"
+      ip: "1.1.1.40"
       interfaces: 4
       vlans: [10,20,30,50]
       trunk: true

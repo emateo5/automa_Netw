@@ -22,7 +22,7 @@
                             "format": "date"
                         },
                         "devices": {
-                            "type": "array",
+                            "type": ["array", "null"],
                             "items": {
                                 "type": "string",
                                 "maxLength": 20

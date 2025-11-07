@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "ejemplo3",
+    "type": "object",
+    "properties": {
+        "modelo": {
+            "type": "string",
+            "maxLength": 20
+        },
+        "fabricante": {
+            "type": "string",
+            "pattern": "^[A-Za-z-]+$",
+            "maxLength": 30
+        },
+        "año_lanzamiento": {
+            "type": "integer",
+            "minimum": 1990,
+            "maximum": 2024
+        }
+    },
+    "required": ["modelo", "fabricante", "año_lanzamiento"],
+    "additionalProperties": false
+}

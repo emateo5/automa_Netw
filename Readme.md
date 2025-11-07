@@ -27,12 +27,6 @@
 
 - **ejemplo1**: ejemplo basico de codigo ansible
 
-#### Presentaciones
-
-- **IaC**: conceptos de IaC. Automatización de infraestructura
-- **Ansible**: Conceptos de Ansible
-- **Json-Schema**: Validación de datos y construccion de modelos de datos
-
 ### Libros
 
 - Python Practical Programing

@@ -20,4 +20,3 @@
     - name: Mostrar informacion del dispositivo
       ansible.builtin.debug:
         var: device_info.stdout_lines
-  

@@ -1,3 +1,6 @@
+# Ejemplo de playbook para obtener y mostrar la configuracion de dispositivos Cisco IOS
+# By Ed Scrimaglia
+
 ---
 - name: Playbook para ver archivo de configuracion dispositivos Cisco IOS
   hosts: cisco_ios

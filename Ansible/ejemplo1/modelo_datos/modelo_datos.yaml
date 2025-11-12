@@ -8,11 +8,11 @@ modelo:
     devices:
       - hostname: "SW_Bld_A"
         management:
-          ip: "X.X.X.X"
+          ip: "10.2.0.103"
           interface: "GigabitEthernet0/0"
         connection:
           device_type: "cisco_ios"
-          host: "X.X.X.X"
+          host: "10.2.0.103"
           username: "xxxx"
           password: "xxxx"
           global_delay_factor: 1
@@ -22,25 +22,25 @@ modelo:
             description: "Conexion a SW_CORE_1"
             mode: trunk
             trunk_mode: auto
-            allowed_vlans: "10,20,30"
-            vlan: None
+            allowed_vlans: [10,20,30]
+            vlan: null
           - name: GigabitEthernet0/2
             description: "Conexion a SW_CORE_2"
             mode: trunk
             trunk_mode: auto
-            allowed_vlans: "10,20,30"
-            vlan: None
+            allowed_vlans: [10,20,30]
+            vlan: null
           - name: "GigabitEthernet1/1"
             description: "Conexion a PC_ING_1"
             mode: access
-            trunk_mode: None
-            allowed_vlans: None
+            trunk_mode: null
+            allowed_vlans: null
             vlan: 10
           - name: "GigabitEthernet1/2"
             description: "Conexion a PC_PROD_1"
             mode: access
-            trunk_mode: None
-            allowed_vlans: None
+            trunk_mode: null
+            allowed_vlans: null
             vlan: 20
         vlans:
           - id: 10
@@ -61,11 +61,11 @@ modelo:
             config_file: "int_access.cfg"
       - hostname: "SW_Bld_B"
         management:
-          ip: "X.X.X.X"
+          ip: "10.2.0.104"
           interface: "GigabitEthernet0/0"
         connection:
           device_type: "cisco_ios"
-          host: "X.X.X.X"
+          host: "10.2.0.104"
           username: "xxxx"
           password: "xxxx"
           global_delay_factor: 1
@@ -75,25 +75,25 @@ modelo:
             description: "Conexion a SW_CORE_1"
             mode: "trunk"
             trunk_mode: "auto"
-            allowed_vlans: "10,20,30"
-            vlan: None
+            allowed_vlans: [10,20,30]
+            vlan: null
           - name: "GigabitEthernet0/2"
             description: "Conexion a SW_CORE_2"
             mode: "trunk"
             trunk_mode: "auto"
-            allowed_vlans: "10,20,30"
-            vlan: None
+            allowed_vlans: [10,20,30]
+            vlan: null
           - name: "GigabitEthernet1/1"
             description: "Conexion a PC_ING_2"
             mode: "access"
-            trunk_mode: None
-            allowed_vlans: None
+            trunk_mode: null
+            allowed_vlans: null
             vlan: 10
           - name: "GigabitEthernet1/2"
             description: "Conexion a PC_PROD_2"
             mode: "access"
-            trunk_mode: None
-            allowed_vlans: None
+            trunk_mode: null
+            allowed_vlans: null
             vlan: 20
         vlans:
           - id: 10

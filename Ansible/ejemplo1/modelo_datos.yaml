@@ -1,0 +1,117 @@
+modelo:
+  metadatos:
+    proyecto: "Simulacro de Caso de Uso"
+    version: "1.0"
+    autor: "Ed Scrimaglia"
+    fecha_creacion: "2024-06-15"
+  infra_spec:
+    devices:
+      - hostname: "SW_Bld_A"
+        management:
+          ip: "X.X.X.X"
+          interface: "GigabitEthernet0/0"
+        connection:
+          device_type: "cisco_ios"
+          host: "X.X.X.X"
+          username: "xxxx"
+          password: "xxxx"
+          global_delay_factor: 1
+          ssh_config_file: "~/.ssh/config"
+        interfaces:
+          - name: "GigabitEthernet0/1"
+            description: "Conexion a SW_CORE_1"
+            mode: trunk
+            trunk_mode: auto
+            allowed_vlans: "10,20,30"
+            vlan: None
+          - name: GigabitEthernet0/2
+            description: "Conexion a SW_CORE_2"
+            mode: trunk
+            trunk_mode: auto
+            allowed_vlans: "10,20,30"
+            vlan: None
+          - name: "GigabitEthernet1/1"
+            description: "Conexion a PC_ING_1"
+            mode: access
+            trunk_mode: None
+            allowed_vlans: None
+            vlan: 10
+          - name: "GigabitEthernet1/2"
+            description: "Conexion a PC_PROD_1"
+            mode: access
+            trunk_mode: None
+            allowed_vlans: None
+            vlan: 20
+        vlans:
+          - id: 10
+            name: "Ingenieria"
+          - id: 20
+            name: "Produccion"
+          - id: 30
+            name: "Finanzas"
+        config_spec:
+          - data_path: "vlans"
+            template: "vlans.j2"
+            config_file: "vlan.cfg"
+          - data_path: "interfaces"
+            template: "int_trunk.j2"
+            config_file: "int_trunk.cfg"
+          - data_path: "interfaces"
+            template: "int_access.j2"
+            config_file: "int_access.cfg"
+      - hostname: "SW_Bld_B"
+        management:
+          ip: "X.X.X.X"
+          interface: "GigabitEthernet0/0"
+        connection:
+          device_type: "cisco_ios"
+          host: "X.X.X.X"
+          username: "xxxx"
+          password: "xxxx"
+          global_delay_factor: 1
+          ssh_config_file: "~/.ssh/config"
+        interfaces:
+          - name: "GigabitEthernet0/1"
+            description: "Conexion a SW_CORE_1"
+            mode: "trunk"
+            trunk_mode: "auto"
+            allowed_vlans: "10,20,30"
+            vlan: None
+          - name: "GigabitEthernet0/2"
+            description: "Conexion a SW_CORE_2"
+            mode: "trunk"
+            trunk_mode: "auto"
+            allowed_vlans: "10,20,30"
+            vlan: None
+          - name: "GigabitEthernet1/1"
+            description: "Conexion a PC_ING_2"
+            mode: "access"
+            trunk_mode: None
+            allowed_vlans: None
+            vlan: 10
+          - name: "GigabitEthernet1/2"
+            description: "Conexion a PC_PROD_2"
+            mode: "access"
+            trunk_mode: None
+            allowed_vlans: None
+            vlan: 20
+        vlans:
+          - id: 10
+            name: "Ingenieria"
+          - id: 20
+            name: "Produccion"
+          - id: 30
+            name: "Finanzas"
+        config_spec:
+          - type: "vlans"
+            data_path: "vlans"
+            template: "vlans.j2"
+            config_file: "vlan.cfg"
+          - type: "interfaces_trunk"
+            data_path: "interfaces"
+            template: "int_trunk.j2"
+            config_file: "int_trunk.cfg"
+          - type: "interfaces_access"
+            data_path: "interfaces"
+            template: "int_access.j2"
+            config_file: "int_access.cfg"

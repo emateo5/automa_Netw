@@ -25,7 +25,7 @@
 
 #### Ansible
 
-- **ejemplo1**: ejemplo basico de codigo ansible
+- **playbook1**: ejemplo basico de codigo ansible
 
 ### Libros
 

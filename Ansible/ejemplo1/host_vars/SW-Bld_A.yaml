@@ -1,0 +1,2 @@
+# Ansible host variables for SW-Bld_A
+ansible_password: netsim1234

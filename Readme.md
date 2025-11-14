@@ -26,6 +26,10 @@
 #### Ansible
 
 - **playbook1**: ejemplo basico de codigo ansible
+- **invantario**: ejemplo de inventario INI
+- **variables**: variables tipo host_var y group_var. Lugares de definición y precedencia de las variables
+- **debug**: niveles de debug de ansible
+- **contexto**: modulos, lugar donde estan los modulos, coleciones de modulos
 
 ### Libros
 

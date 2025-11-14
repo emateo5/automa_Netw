@@ -34,5 +34,6 @@
 ### Libros
 
 - Python Practical Programing
+- Learning Ansible
 
 #### Ed Scrimaglia

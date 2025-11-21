@@ -6,6 +6,7 @@ modelo:
     fecha_creacion: "2024-06-15"
     time_zone: "America/Argentina/Buenos_Aires"
   infra_spec:
+    hosts_group: "cisco_ios_access"
     devices:
       - hostname: "SW_Bld_A"
         management:

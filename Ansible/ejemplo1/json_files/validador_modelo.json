@@ -26,11 +26,16 @@
                             "format": "date-time"
                         }
                     },
-                    "required": ["proyecto", "version", "autor", "fecha_creacion"]
+                    "required": ["proyecto", "version", "autor", "fecha_creacion"],
+                    "additionalProperties": false
                 },
                 "infra_spec": {
                     "type": "object",
                     "properties": {
+                        "hosts_group": {
+                            "type": "string",
+                            "maxLength": 50
+                        },
                         "devices": {
                             "type": "array",
                             "items": {
@@ -55,7 +60,8 @@
                                                 "maxLength": 30
                                             }
                                         },
-                                        "required": ["ip", "interface"]
+                                        "required": ["ip", "interface"],
+                                        "additionalProperties": false
                                     },
                                     "connection": {
                                         "type": "object",
@@ -88,7 +94,8 @@
                                                 "maxLength": 100
                                             }
                                         },
-                                        "required": ["device_type", "host", "username", "password"]
+                                        "required": ["device_type", "host", "username", "password"],
+                                        "additionalProperties": false
                                     },
                                     "interfaces": {
                                         "type": "array",
@@ -125,20 +132,25 @@
                                                     "maximum": 4094
                                                 }
                                             },
-                                            "required": ["name", "description", "mode"]
+                                            "required": ["name", "description", "mode"],
+                                            "additionalProperties": false
                                         }
                                     }
                                 },
-                                "required": ["hostname", "management", "connection", "interfaces"]
+                                "required": ["hostname", "management", "connection", "interfaces"],
+                                "additionalProperties": false
                             },
                             "minItems": 1
                         }
                     },
-                    "required": ["devices"]
+                    "required": ["devices", "hosts_group"],
+                    "additionalProperties": false
                 }
             },
-            "required": ["metadatos", "infra_spec"]
+            "required": ["metadatos", "infra_spec"],
+            "additionalProperties": false
         }
     },
-    "required": ["modelo"]
+    "required": ["modelo"],
+    "additionalProperties": false
 }

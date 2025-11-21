@@ -1,4 +1,4 @@
-# Playbook para usar variables de un host, desde otros hosts en otro Play
+# Playbook para usar variables pertenecientes a diferentes hosts
 # By Ed Scrimaglia
 
 ---
@@ -6,22 +6,24 @@
   hosts: localhost
   gather_facts: false
 
+  vars_files:
+    - ./modelo_datos/modelo_datos.yaml
+
   tasks:
-    - name: Definir una variable local
+    - name: Definir una variable y le asigna el valor del atributo hosts_group del Modelo de Datos
       ansible.builtin.set_fact:
-        local_var: "variable X"
+        list_hosts: "{{ modelo.infra_spec.hosts_group }}"
+
+    - name: Mostrar la variable local que contiene el grupo de hosts
+      ansible.builtin.debug:
+        msg: "El grupo de hosts es: {{ list_hosts }}"
 
 - name: Play para mostrar la variable de otro host (localhost)
-  hosts: cisco_ios_access
+  hosts: "{{ hostvars['localhost'].list_hosts }}"
   gather_facts: false
 
   tasks:
-    - name: Mostrar la variable local del host localhost
-      ansible.builtin.debug:
-        msg: "Variable desde localhost: {{ hostvars['localhost'].local_var }}"
-      delegate_to: localhost
-
-    - name: Mostrar interfaces de cada dispositiv del invetario
+    - name: Mostrar interfaces de cada dispositivo
       cisco.ios.ios_command:
         commands:
           - show ip interface brief

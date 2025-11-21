@@ -4,6 +4,7 @@ modelo:
     version: "1.0"
     autor: "Ed Scrimaglia"
     fecha_creacion: "2024-06-15"
+    time_zone: "America/Argentina/Buenos_Aires"
   infra_spec:
     devices:
       - hostname: "SW_Bld_A"

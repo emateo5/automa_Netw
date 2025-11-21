@@ -1,0 +1,16 @@
+host jumphost
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  User root
+  HostName netsim.octupus.com
+
+host 10.2.*.* !jumphost
+  #Force usage of this SSH config file
+  ProxyCommand ssh -F ~/.ssh/config -W %h:%p jumphost
+
+host 10.2.*.*
+  KexAlgorithms +diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1,ecdh-sha2-nistp256
+  HostKeyAlgorithms +ssh-rsa 
+  Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,aes192-cbc,aes256-cbc
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  MACs hmac-sha1,hmac-sha1-96

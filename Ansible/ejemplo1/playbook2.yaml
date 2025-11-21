@@ -1,0 +1,50 @@
+# Playbook para visualizar variables
+# By Ed Scrimaglia
+
+---
+- name: Playbook para mostrar variables
+  hosts: cisco_ios_access
+  gather_facts: false
+
+  vars_files:
+    - "./modelo_datos/modelo_datos.yaml"
+
+  tasks:
+    - name: Mostrar variables desde el modelo de datos
+      ansible.builtin.debug:
+        var: modelo.metadatos
+      delegate_to: localhost
+
+    - name: Mostrar variables usando comando msg en lugar de var
+      ansible.builtin.debug:
+        msg: "Proyecto: {{ modelo.metadatos.proyecto }}, Version: {{ modelo.metadatos.version }}, Autor: {{ modelo.metadatos.autor }}}"
+      delegate_to: localhost
+
+    - name: Mostrar variables de hosts
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]
+
+    - name: Mostrar variables que dependen de una iteracion
+      ansible.builtin.debug:
+        msg: |
+          {% for device in modelo.infra_spec.devices %}
+          Hostname: {{ device.hostname }}
+          {% endfor %}
+      delegate_to: localhost
+
+    - name: Crear variables en Ansible
+      ansible.builtin.set_fact:
+        devices_var: "{{ modelo.infra_spec.devices }}"
+
+    - name: Mostrar variables de hosts despues de crear variables
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]
+
+    - name: Mostrar una variable especifica del hostvars
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname].playbook_dir
+
+    - name: Mostra el contenido del archivo JSON Schema
+      ansible.builtin.debug:
+        msg: "{{ lookup('file', 'json_files/validador_modelo.json') | from_json }}"
+      delegate_to: localhost

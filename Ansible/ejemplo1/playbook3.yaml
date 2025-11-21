@@ -1,0 +1,32 @@
+# Playbook para usar variables de un host, desde otros hosts en otro Play
+# By Ed Scrimaglia
+
+---
+- name: Play para usar variables de otros hosts
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Definir una variable local
+      ansible.builtin.set_fact:
+        local_var: "variable X"
+
+- name: Play para mostrar la variable de otro host (localhost)
+  hosts: cisco_ios_access
+  gather_facts: false
+
+  tasks:
+    - name: Mostrar la variable local del host localhost
+      ansible.builtin.debug:
+        msg: "Variable desde localhost: {{ hostvars['localhost'].local_var }}"
+      delegate_to: localhost
+
+    - name: Mostrar interfaces de cada dispositiv del invetario
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+      register: interface_output
+
+    - name: Mostrar salida de interfaces
+      ansible.builtin.debug:
+        var: interface_output.stdout_lines

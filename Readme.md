@@ -26,10 +26,13 @@
 #### Ansible
 
 - **playbook1**: ejemplo basico de codigo ansible
+- **playbook2**: playbook para crear y utilizar varaibles
+- **laybook3**: playbook para usar variables de diferentes hosts
 - **invantario**: ejemplo de inventario INI
 - **variables**: variables tipo host_var y group_var. Lugares de definición y precedencia de las variables
 - **debug**: niveles de debug de ansible
 - **contexto**: modulos, lugar donde estan los modulos, coleciones de modulos
+- **config**: confiuracion SSH para compatibilizar metodos de cifrado y encripción entre Ansible y los dispositivos simulados
 
 ### Libros
 

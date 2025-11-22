@@ -1,4 +1,4 @@
-# Playbook para leer el grupo de hosts desde el modelo de datos
+# Playbook para leer el modelo de datos y pasarlo entre Plays como variables entre hosts
 # By Ed Scrimaglia
 
 ---
@@ -12,14 +12,11 @@
   tasks:
     - name: Definir una variable y le asigna el valor del atributo hosts_group del Modelo de Datos
       ansible.builtin.set_fact:
-        list_hosts: "{{ modelo.infra_spec.hosts_group }}"
+        modelo: "{{ modelo }}"
 
-    - name: Mostrar la variable local que contiene el grupo de hosts
-      ansible.builtin.debug:
-        msg: "El grupo de hosts es: {{ list_hosts }}"
 
 - name: Play para mostrar la variable de otro host (localhost)
-  hosts: "{{ hostvars['localhost'].list_hosts }}"
+  hosts: "{{ hostvars['localhost'].modelo.infra_spec.hosts_group }}"
   gather_facts: false
 
   tasks:

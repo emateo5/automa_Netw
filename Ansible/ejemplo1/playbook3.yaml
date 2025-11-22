@@ -1,4 +1,4 @@
-# Playbook para usar variables pertenecientes a diferentes hosts
+# Playbook para leer el grupo de hosts desde el modelo de datos
 # By Ed Scrimaglia
 
 ---

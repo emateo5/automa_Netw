@@ -32,7 +32,7 @@
 - **variables**: variables tipo host_var y group_var. Lugares de definición y precedencia de las variables
 - **debug**: niveles de debug de ansible
 - **contexto**: modulos, lugar donde estan los modulos, coleciones de modulos
-- **config**: confiuracion SSH para compatibilizar metodos de cifrado y encripción entre Ansible y los dispositivos simulados
+- **ssh-config**: configuracion SSH para compatibilizar metodos de cifrado y encripción entre Ansible y los dispositivos simulados
 
 ### Libros
 

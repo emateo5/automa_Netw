@@ -24,6 +24,10 @@
                         "fecha_creacion": {
                             "type": "string",
                             "format": "date-time"
+                        },
+                        "time_zone": {
+                            "type": "string",
+                            "maxLength": 50
                         }
                     },
                     "required": ["proyecto", "version", "autor", "fecha_creacion"],
@@ -137,8 +141,7 @@
                                         }
                                     }
                                 },
-                                "required": ["hostname", "management", "connection", "interfaces"],
-                                "additionalProperties": false
+                                "required": ["hostname", "management", "connection", "interfaces"]
                             },
                             "minItems": 1
                         }

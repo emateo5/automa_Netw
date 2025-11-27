@@ -2,7 +2,7 @@
 # By Ed Scrimaglia
 
 ---
-- name: Play para mostrar la variable de otro host (localhost)
+- name: Playbook que usa variables en el parametro hosts
   hosts: "{{ modelo.infra_spec.hosts_group }}"
   gather_facts: false
 

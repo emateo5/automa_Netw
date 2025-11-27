@@ -1,0 +1,15 @@
+# Validacion modelo de datos con json-schema
+# By Ed Scrimaglia
+
+---
+- name: Validacion con json-schema
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    modelo_datos_path: "./modelo_datos/modelo_datos.yaml"
+    schema_path: "./json_files/validador_modelo.json"
+
+  tasks:
+    - name: Incluir tarea de validacion
+      ansible.builtin.include_tasks: tasks/validate.yaml

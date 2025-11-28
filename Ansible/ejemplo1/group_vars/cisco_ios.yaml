@@ -3,4 +3,4 @@ ansible_network_os: cisco.ios.ios
 ansible_user: netsim
 ansible_become: true
 ansible_become_method: ansible.netcommon.enable
-ansible_become_password: netsim1234
+ansible_become_password: password

@@ -1,7 +1,7 @@
-# Curso de Network Automation - UTN Academia
+# Curso de Network Automation - UTN FRC - Cisco Academy
 
 **Autor:** Ed Scrimaglia  
-**Institución:** Universidad Tecnológica Nacional (UTN)  
+**Institución:** Universidad Tecnológica Nacional (UTN) FRC
 **Curso:** Network Automation Engineer  
 **Repositorio:** UTN-IaC
 

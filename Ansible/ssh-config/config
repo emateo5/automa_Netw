@@ -1,8 +1,8 @@
 host jumphost
   IdentitiesOnly yes
   IdentityFile ~/.ssh/id_rsa
-  User root
-  HostName netsim.octupus.com
+  User xxx
+  HostName hostname.com or ip.address.here
 
 host 10.2.*.* !jumphost
   #Force usage of this SSH config file

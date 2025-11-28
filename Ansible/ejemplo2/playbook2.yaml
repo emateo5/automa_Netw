@@ -1,0 +1,34 @@
+# Estructuras condicionales y uso de hostvar
+# By Ed Scrimaglia
+---
+- name: Playbook definicion de variables
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - ./modelo_datos/modelo_datos.yaml
+
+  tasks:
+    - name: Definicion de variables
+      ansible.builtin.set_fact:
+        version: "{{ modelo.metadatos.version }}"
+        autor: "{{ modelo.metadatos.autor }}"
+        fecha_de_creacion: "{{ modelo.metadatos.fecha_creacion }}"
+        zona_horaria: "{{ modelo.metadatos.time_zone }}"
+
+- name: Condicionales usando variables definidas
+  hosts: cisco_ios
+  gather_facts: false
+
+  tasks:
+    - name: Mostrar version del proyecto
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+      register: salida_version
+      when: hostvars['localhost'].version == '1.0'
+
+    - name: Mostrar informacion del dispositivo actual
+      ansible.builtin.debug:
+        var: salida_version.stdout_lines
+      when: hostvars['localhost'].version == '1.0'

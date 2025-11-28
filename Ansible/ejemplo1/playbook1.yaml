@@ -3,7 +3,7 @@
 
 ---
 - name: Playbook para ver salidas de comandos de consulta sobre dispositivos Cisco IOS de acceso
-  hosts: cisco_ios_access
+  hosts: cisco_ios
   gather_facts: false
 
   tasks:

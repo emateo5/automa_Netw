@@ -1,0 +1,159 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Devices Configuration Schema",
+    "type": "object",
+    "properties": {
+        "modelo": {
+            "type": "object",
+            "properties": {
+                "metadatos": {
+                    "type": "object",
+                    "properties": {
+                        "proyecto": {
+                            "type": "string",
+                            "maxLength": 30
+                        },
+                        "version": {
+                            "type": "string",
+                            "maxLength": 20
+                        },
+                        "autor": {
+                            "type": "string",
+                            "maxLength": 50
+                        },
+                        "fecha_creacion": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "time_zone": {
+                            "type": "string",
+                            "maxLength": 50
+                        }
+                    },
+                    "required": ["proyecto", "version", "autor", "fecha_creacion"],
+                    "additionalProperties": false
+                },
+                "infra_spec": {
+                    "type": "object",
+                    "properties": {
+                        "hosts_group": {
+                            "type": "string",
+                            "maxLength": 50
+                        },
+                        "devices": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "hostname": {
+                                        "type": "string",
+                                        "maxLength": 20
+                                    },
+                                    "management": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ip": {
+                                                "type": "string",
+                                                "oneOf": [
+                                                    {"format": "ipv4"}, 
+                                                    {"format": "ipv6"}
+                                                ]
+                                            },
+                                            "interface": {
+                                                "type": "string",
+                                                "maxLength": 30
+                                            }
+                                        },
+                                        "required": ["ip", "interface"],
+                                        "additionalProperties": false
+                                    },
+                                    "connection": {
+                                        "type": "object",
+                                        "properties": {
+                                            "device_type": {
+                                                "type": "string",
+                                                "maxLength": 30
+                                            },
+                                            "host": {
+                                                "type": "string",
+                                                "oneOf": [
+                                                    {"format": "ipv4"},
+                                                    {"format": "ipv6"}
+                                                ]
+                                            },
+                                            "username": {
+                                                "type": "string",
+                                                "maxLength": 50
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "maxLength": 50
+                                            },
+                                            "global_delay_factor": {
+                                                "type":"number",
+                                                "minimum": 0
+                                            },
+                                            "ssh_config_file": {
+                                                "type": "string",
+                                                "maxLength": 100
+                                            }
+                                        },
+                                        "required": ["device_type", "host", "username", "password"],
+                                        "additionalProperties": false
+                                    },
+                                    "interfaces": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "maxLength": 30
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "maxLength": 100
+                                                },
+                                                "mode": {
+                                                    "type": "string",
+                                                    "enum": ["access", "trunk"]
+                                                },
+                                                "trunk_mode": {
+                                                    "type": ["string", "null"],
+                                                    "enum": ["auto", "on", "off", null]
+                                                },
+                                                "allowed_vlans": {
+                                                    "type": ["array", "null"],
+                                                    "items": {
+                                                        "type": "integer",
+                                                        "minimum": 1,
+                                                        "maximum": 30
+                                                    }
+                                                },
+                                                "vlan": {
+                                                    "type": ["integer", "null"],
+                                                    "minimum": 1,
+                                                    "maximum": 4094
+                                                }
+                                            },
+                                            "required": ["name", "description", "mode"],
+                                            "additionalProperties": false
+                                        }
+                                    }
+                                },
+                                "required": ["hostname", "management", "connection", "interfaces"]
+                            },
+                            "minItems": 1
+                        }
+                    },
+                    "required": ["devices", "hosts_group"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["metadatos", "infra_spec"],
+            "additionalProperties": false
+        }
+    },
+    "required": ["modelo"],
+    "additionalProperties": false
+}

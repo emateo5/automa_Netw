@@ -1,0 +1,26 @@
+# Playbook utilizar estructuras condicionales en Ansible
+# By Ed Scrimaglia
+---
+- name: Estructura condicionales
+  hosts: cisco_ios
+  gather_facts: false
+
+  vars:
+    ejecuta: true
+    device: "SW-Bld_B"
+
+  vars_files:
+    - ./modelo_datos/modelo_datos.yaml
+
+  tasks:
+    - name: Mostrar estado de las interfaces
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+      register: salida_interfaces
+      when: ejecuta and modelo.metadatos.version == '1.0'
+
+    - name: Imprimir estado de las interfaces
+      ansible.builtin.debug:
+        var: salida_interfaces.stdout_lines
+      when: ejecuta and modelo.metadatos.version == '1.0'

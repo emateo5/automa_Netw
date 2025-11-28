@@ -1,0 +1,13 @@
+# Task validate data model against JSON schema
+# By Ed Scrimaglia
+---
+- name: Validar el modelo de datos contra el esquema JSON
+  ansible.utils.validate:
+    data: "{{ lookup('file', modelo_datos_path) | from_yaml }}"
+    criteria: "{{ lookup('file', schema_path) | from_json }}"
+    engine: ansible.utils.jsonschema
+  register: validation_result
+
+- name: Mostrar resultado de la validacion
+  ansible.builtin.debug:
+    var: validation_result

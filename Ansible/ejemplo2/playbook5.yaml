@@ -1,0 +1,30 @@
+# Estructura block/rescue en Ansible
+# By Ed Scrimaglia
+---
+- name: Estructura de manejo de errores - Block/Rescue
+  hosts: "{{ modelo.infra_spec.hosts_group }}"
+  gather_facts: false
+
+  vars_files:
+    - ./modelo_datos/modelo_datos.yaml
+
+  tasks:
+    - name: Intentar ejecutar comandos en dispositivos
+      block:
+        - name: Mostrar interfaces del dispositivo
+          cisco.ios.ios_command:
+            commands:
+              - show ip interface brief
+          register: salida_version
+
+        - name: Imprimir interfaces del dispositivo
+          ansible.builtin.debug:
+            var: salida_version.stdout_lines
+      rescue:
+        - name: Manejar error de conexion
+          ansible.builtin.debug:
+            msg: "No se pudo conectar al dispositivo {{ inventory_hostname }}. Verifique la conectividad y las credenciales."
+      always:
+        - name: Tarea que siempre se ejecuta
+          ansible.builtin.debug:
+            msg: "Finalizando intento de conexion al dispositivo {{ inventory_hostname }}."

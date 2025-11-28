@@ -16,6 +16,6 @@
           - show ip interface brief
       register: interface_output
 
-    - name: Mostrar salida de interfaces
+    - name: Visializar salida de interfaces
       ansible.builtin.debug:
         var: interface_output.stdout_lines

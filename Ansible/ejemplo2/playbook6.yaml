@@ -1,6 +1,5 @@
-# Validacion modelo de datos con json-schema
+# Validacion modelo de datos con json-schema - Reutilizacion
 # By Ed Scrimaglia
-
 ---
 - name: Validacion con json-schema
   hosts: localhost

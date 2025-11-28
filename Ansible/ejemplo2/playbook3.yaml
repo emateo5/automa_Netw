@@ -1,0 +1,19 @@
+# Estructuras de progrmacion en Ansible
+# By Ed Scrimaglia
+---
+- name: Estructure de programacion - Loop
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - ./modelo_datos/modelo_datos.yaml
+
+  tasks:
+    - name: Definir variable segun version del modelo
+      ansible.builtin.set_fact:
+        devices: "{{ modelo.infra_spec.devices }}"
+
+    - name: Mostrar salida iteracion sobre lista de dispositivos
+      ansible.builtin.debug:
+        msg: "{{ item.hostname }}"
+      loop: "{{ devices }}"

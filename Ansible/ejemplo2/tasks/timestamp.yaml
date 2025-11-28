@@ -1,0 +1,14 @@
+# Task get time from SO
+# By Ed Scrimaglia
+---
+- command: "date '+%Y-%m-%d %H:%M:%S'"
+  register: date_utc
+  environment:
+    TZ: UTC
+  delegate_to: localhost
+
+- command: "date '+%Y-%m-%d %H:%M:%S'"
+  register: date_local
+  environment:
+    TZ: "{{model.metadatos.time_zone}}"
+  delegate_to: localhost

@@ -13,7 +13,9 @@
       ansible.builtin.set_fact:
         devices: "{{ modelo.infra_spec.devices }}"
 
-    - name: Mostrar salida iteracion sobre lista de dispositivos
+    - name: Mostrar salida iteracion sobre lista de dispositivos. Uso de loop_control para simplificar salida
       ansible.builtin.debug:
-        msg: "{{ item.hostname }}"
+        msg: "{{ item.interfaces }}"
       loop: "{{ devices }}"
+      loop_control:
+        label: "{{ item.hostname }}"

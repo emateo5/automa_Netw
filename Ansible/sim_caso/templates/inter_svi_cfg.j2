@@ -1,0 +1,10 @@
+{% for interface in interfaces -%}
+{% if interface.mode == "svi" -%}
+interface {{ interface.name }}
+  description {{ interface.description }}
+  ip address {{ interface.ip_address }} {{ interface.mask }}
+  vrrp {{ interface.vrrp_group }} ip {{ interface.vrrp_ip }}
+  vrrp {{ interface.vrrp_group }} priority {{ interface.vrrp_priority }}
+!
+{% endif -%}
+{% endfor -%}

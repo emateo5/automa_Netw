@@ -1,0 +1,20 @@
+{# Interface Access Configuration Template #}
+
+# Device - {{inventory_hostname}}
+
+## Configuraciónes interfaces tipo Access
+
+### hostname: {{inventory_hostname}}
+
+```
+!
+{% for interface in interfaces %}
+{% if interface.mode == "access" %}
+interface {{ interface.name }}
+ description {{ interface.description }}
+ switchport mode {{ interface.mode }}
+ switchport access vlan {{ interface.vlan }}
+!
+{% endif %}
+{% endfor %}
+```

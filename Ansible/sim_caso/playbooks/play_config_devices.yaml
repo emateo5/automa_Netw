@@ -1,0 +1,77 @@
+# Playbook para aplicar las configuraciones generadas a los dispositivos de red
+---
+- name: Aplicar configuraciones de interfaces de trunk a dispositivos de red
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.core_switches }}, {{ modelo.hosts_groups.data_center_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Aplicar configuración de interfaces de trunk
+      cisco.ios.ios_config:
+        src: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_int_trunk.cfg"
+      register: apply_trunk_result
+      notify: Guardar configuracion
+
+  handlers:
+    - name: Guardar configuracion
+      cisco.ios.ios_config:
+        save_when: modified
+
+- name: Aplicar configuraciones de interfaces de acceso a dispositivos de red
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.data_center_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Aplicar configuración de interfaces de acceso
+      cisco.ios.ios_config:
+        src: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_int_access.cfg"
+      register: apply_access_result
+      notify: Guardar configuracion
+
+  handlers:
+    - name: Guardar configuracion
+      cisco.ios.ios_config:
+        save_when: modified
+
+- name: Aplicar configuraciones de VLANs a dispositivos de red
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.core_switches }}, {{ modelo.hosts_groups.data_center_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Aplicar configuración de VLANs
+      cisco.ios.ios_config:
+        src: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_vlans.cfg"
+      register: apply_vlans_result
+      notify: Guardar configuracion
+
+  handlers:
+    - name: Guardar configuracion
+      cisco.ios.ios_config:
+        save_when: modified
+
+- name: Aplicar configuraciones de SVI y VRRP a dispositivos de red
+  hosts: "{{ modelo.hosts_groups.core_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Aplicar configuración de SVI y VRRP
+      cisco.ios.ios_config:
+        src: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_inter_svi.cfg"
+      register: apply_svi_vrrp_result
+      notify: Guardar configuracion
+
+  handlers:
+    - name: Guardar configuracion
+      cisco.ios.ios_config:
+        save_when: modified

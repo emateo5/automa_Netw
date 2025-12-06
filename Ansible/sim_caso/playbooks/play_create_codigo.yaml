@@ -1,0 +1,85 @@
+# Playbook para generar codigo utilizando templates Jinja2
+---
+- name: Generar codigo desde templates Jinja2 para interfaces de acceso
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.data_center_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Defincion de variables locales
+      ansible.builtin.set_fact:
+        interfaces: "{{ modelo.infra_spec.devices[inventory_hostname].interfaces }}"
+
+    - name: Renderizar template Jinja2 para configurarcion de interfaces de acceso
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/inter_access_cfg.j2"
+        dest: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_int_access.cfg"
+      register: int_access_result
+
+    - name: Mostrar resultado de la generacion de configuracion de interfaces de acceso
+      ansible.builtin.debug:
+        var: int_access_result
+
+- name: Generar codigo desde templates Jinja2 para interfaces troncales
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.data_center_switches }}, {{ modelo.hosts_groups.core_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Defincion de variables locales
+      ansible.builtin.set_fact:
+        interfaces: "{{ modelo.infra_spec.devices[inventory_hostname].interfaces }}"
+
+    - name: Renderizar template Jinja2 para configurarcion de interfaces troncales
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/inter_trunk_cfg.j2"
+        dest: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_int_trunk.cfg"
+      register: int_trunk_result
+
+    - name: Mostrar resultado de la generacion de configuracion de interfaces troncales
+      ansible.builtin.debug:
+        var: int_trunk_result
+
+- name: Generar codigo desde templates Jinja2 para configuracion de VLANs
+  hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.core_switches }}, {{ modelo.hosts_groups.data_center_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Defincion de variables locales
+      ansible.builtin.set_fact:
+        vlans: "{{ modelo.infra_spec.devices[inventory_hostname].vlans }}"
+
+    - name: Renderizar template Jinja2 para configurarcion de VLANs
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/vlans_cfg.j2"
+        dest: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_vlans.cfg"
+      register: vlans_result
+
+    - name: Mostrar resultado de la generacion de configuracion de VLANs
+      ansible.builtin.debug:
+        var: vlans_result
+
+- name: Generar codigo desde templates Jinja2 para configuracion de SVI y VRRP
+  hosts: "{{ modelo.hosts_groups.core_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Defincion de variables locales
+      ansible.builtin.set_fact:
+        interfaces: "{{ modelo.infra_spec.devices[inventory_hostname].interfaces }}"
+
+    - name: Renderizar template Jinja2 para configurarcion de SVI y VRRP
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/inter_svi_cfg.j2"
+        dest: "{{ playbook_dir }}/../configs/{{ inventory_hostname }}_inter_svi.cfg"
+      register: svi_vrrp_result

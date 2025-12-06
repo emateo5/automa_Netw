@@ -1,0 +1,19 @@
+{# Routing Protocol EIGRP Configuration Template #}
+
+# Device - {{inventory_hostname}}
+
+## Configuraciónes EIGRP
+
+### hostname: {{inventory_hostname}}
+
+```
+!
+router {{ routing.name }} {{ routing.as_number }}
+{% if routing.router_id is defined %}
+  eigrp router-id {{ routing.router_id }}
+{% endif %}
+{% for network in routing.networks %}
+  network {{ network }}
+{% endfor %}
+!
+```

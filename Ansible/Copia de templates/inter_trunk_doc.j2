@@ -1,0 +1,21 @@
+{# Interface Trunk Configuration Template #}
+
+# Device - {{inventory_hostname}}
+
+## Configuraciónes interfaces tipo Trunks
+
+### hostname: {{inventory_hostname}}
+
+```
+!
+{% for interface in interfaces %}
+{% if interface.mode == "trunk" %}
+interface {{ interface.name }}
+ description {{ interface.description }}
+ switchport {{ interface.mode }} encapsulation dot1q
+ switchport mode dynamic {{ interface.trunk_mode }}
+ switchport trunk allowed vlan {{ interface.allowed_vlans }}
+!
+{% endif %}
+{% endfor %}
+```

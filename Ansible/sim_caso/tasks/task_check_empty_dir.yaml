@@ -1,0 +1,10 @@
+- name: Count files
+  ansible.builtin.find:
+    paths: "{{ playbook_dir }}/../documentacion/modulos"
+    patterns: ^1
+    use_regex: yes
+  register: files_start_found
+
+- ansible.builtin.debug:
+    var: files_start_found
+  

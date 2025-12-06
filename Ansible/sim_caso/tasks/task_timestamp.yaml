@@ -1,0 +1,19 @@
+# Task get time from SO
+# By Ed Scrimaglia
+---
+- command: "date '+%Y-%m-%d %H:%M:%S'"
+  register: date_utc
+  environment:
+    TZ: UTC
+  delegate_to: localhost
+
+- command: "date '+%Y-%m-%d %H:%M:%S'"
+  register: date_local
+  environment:
+    TZ: "{{modelo.metadatos.time_zone}}"
+  delegate_to: localhost
+
+- name: Set data & time as facts
+  ansible.builtin.set_fact:
+    date: "{{ date_local.stdout[0:10]}}"
+    time: "{{ date_local.stdout[10:]}}"

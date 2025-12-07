@@ -1,3 +1,6 @@
+# Task to count files in a directory
+# By Ed Scrimaglia
+---
 - name: Count files
   ansible.builtin.find:
     paths: "{{ playbook_dir }}/../documentacion/modulos"

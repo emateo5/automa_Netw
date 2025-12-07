@@ -1,19 +1,23 @@
 # Task get time from SO
 # By Ed Scrimaglia
 ---
-- name: Get date & time in UTC
-  ansible.builtin.command: "date '+%Y-%m-%d %H:%M:%S'"
+- name: Get date in UTC
+  ansible.builtin.command: date -u "+%Y-%m-%d %H:%M:%S"
   register: date_utc
-  environment:
-    TZ: UTC
+  changed_when: false
 
-- name: Get date & time in local time zone
-  ansible.builtin.command: "date '+%Y-%m-%d %H:%M:%S'"
-  register: date_local
+- name: Get date in local time zone
+  ansible.builtin.command: date "+%Y-%m-%d %H:%M:%S"
   environment:
-    TZ: "{{modelo.metadatos.time_zone}}"
+    TZ: "{{ modelo.metadatos.time_zone }}"
+  register: date_local
+  changed_when: false
 
 - name: Set data & time as facts
   ansible.builtin.set_fact:
     date: "{{ date_local.stdout[0:10] }}"
-    time: "{{ date_local.stdout[10:] }}"
+    time: "{{ date_local.stdout[11:] }}"
+
+- name: Show date & time
+  ansible.builtin.debug:
+    msg: "Fecha: {{ date }} , Hora: {{ time }}"

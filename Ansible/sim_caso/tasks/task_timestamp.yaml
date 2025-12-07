@@ -6,16 +6,14 @@
   register: date_utc
   environment:
     TZ: UTC
-  delegate_to: localhost
 
 - name: Get date & time in local time zone
   ansible.builtin.command: "date '+%Y-%m-%d %H:%M:%S'"
   register: date_local
   environment:
     TZ: "{{modelo.metadatos.time_zone}}"
-  delegate_to: localhost
 
 - name: Set data & time as facts
   ansible.builtin.set_fact:
-    date: "{{ date_local.stdout[0:10]}}"
-    time: "{{ date_local.stdout[10:]}}"
+    date: "{{ date_local.stdout[0:10] }}"
+    time: "{{ date_local.stdout[10:] }}"

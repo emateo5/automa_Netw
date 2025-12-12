@@ -1,4 +1,5 @@
 # Playbook para aplicar las configuraciones generadas a los dispositivos de red
+# By Ed Scrimaglia
 ---
 - name: Aplicar configuraciones de interfaces de trunk a dispositivos de red
   hosts: "{{ modelo.hosts_groups.access_switches }}, {{ modelo.hosts_groups.core_switches }}, {{ modelo.hosts_groups.data_center_switches }}"

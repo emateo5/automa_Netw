@@ -1,0 +1,48 @@
+---
+- name: Genera título del documento llamado documentación del proyecto
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Inclusion de la tarea timestamp
+      ansible.builtin.import_tasks: ../tasks/task_timestamp.yaml
+
+    - name: Set variable servicio
+      ansible.builtin.set_fact:
+        servicio: "{{ modelo.metadatos.proyecto }}"
+
+    - name: Renderizar template Jinja2 generar titulo del reporte
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/../templates/titulo_reporte_{{ item.type }}.j2"
+        dest: "{{ playbook_dir }}/{{ item.dest }}/{{ item.orden }}Titulo_reporte.{{ item.ext }}"
+        mode: "0644"
+      register: titulo_reporte_result
+      loop:
+        - {type: doc, dest: "../documentacion/modulos", ext: md, orden: "1.0"}
+
+
+- name: Crea Documentación del proyecto
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - ../modelo_datos/modelo.yaml
+
+  tasks:
+    - name: Inclusion tarea timestamp
+      ansible.builtin.import_tasks: ../tasks/task_timestamp.yaml
+
+    - name: Inclusion tarear verificar existecia de modulos de documentacion
+      ansible.builtin.import_tasks: ../tasks/task_check_empty_dir.yaml
+
+    - name: Ensambla modulos tipo md de documentacion y crea reporte final
+      ansible.builtin.assemble:
+        src: "{{ playbook_dir }}/../documentacion/modulos/"
+        dest: "{{ playbook_dir }}/../documentacion/Reporte {{ modelo.metadatos.proyecto }} {{ date }}_{{ time }}.md"
+        regexp: "^1"
+        mode: "0644"
+      register: doc_ensamble_result
+      when: files_start_found.matched > 0

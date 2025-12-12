@@ -1,0 +1,20 @@
+{# Interface SVI and VRRP Configuration Template #}
+
+# Device - {{inventory_hostname}}
+
+## Configuraciónes interfaces tipo SVI & VRRP
+
+### hostname: {{inventory_hostname}}
+
+```
+{% for interface in interfaces -%}
+{% if interface.mode == "svi" -%}
+interface {{ interface.name }}
+  description {{ interface.description }}
+  ip address {{ interface.ip_address }} {{ interface.mask }}
+  vrrp {{ interface.vrrp_group }} ip {{ interface.vrrp_ip }}
+  vrrp {{ interface.vrrp_group }} priority {{ interface.vrrp_priority }}
+!
+{% endif -%}
+{% endfor -%}
+```

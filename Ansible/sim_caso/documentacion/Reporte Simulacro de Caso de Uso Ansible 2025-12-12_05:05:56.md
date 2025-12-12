@@ -2,7 +2,7 @@
 
 ## Servicio: Simulacro de Caso de Uso Ansible
 
-Date: 2025-12-12 -  Time: 04:50:43  
+Date: 2025-12-12 -  Time: 05:05:55  
 User: netsim
 
 ```
@@ -269,3 +269,56 @@ vlan 30
 !
 ```
 
+# Device - SW-CORE_1
+
+## Configuraciónes interfaces tipo SVI & VRRP
+
+### hostname: SW-CORE_1
+
+```
+interface Vlan10
+  description SVI Ingenieria
+  ip address 192.168.10.250 255.255.255.0
+  vrrp 10 ip 192.168.10.254
+  vrrp 10 priority 1
+!
+interface Vlan20
+  description SVI Produccion
+  ip address 192.168.20.250 255.255.255.0
+  vrrp 20 ip 192.168.20.254
+  vrrp 20 priority 2
+!
+interface Vlan30
+  description SVI Finanzas
+  ip address 192.168.30.250 255.255.255.0
+  vrrp 30 ip 192.168.30.254
+  vrrp 30 priority 1
+!
+```
+
+# Device - SW-CORE_2
+
+## Configuraciónes interfaces tipo SVI & VRRP
+
+### hostname: SW-CORE_2
+
+```
+interface Vlan10
+  description SVI Ingenieria
+  ip address 192.168.10.251 255.255.255.0
+  vrrp 10 ip 192.168.10.254
+  vrrp 10 priority 2
+!
+interface Vlan20
+  description SVI Produccion
+  ip address 192.168.20.251 255.255.255.0
+  vrrp 20 ip 192.168.20.254
+  vrrp 20 priority 1
+!
+interface Vlan30
+  description SVI Finanzas
+  ip address 192.168.30.251 255.255.255.0
+  vrrp 30 ip 192.168.30.254
+  vrrp 30 priority 2
+!
+```

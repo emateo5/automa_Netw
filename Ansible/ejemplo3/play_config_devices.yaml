@@ -1,0 +1,20 @@
+# Playbook para aplicar las configuraciones generadas a los dispositivos de red
+# By Ed Scrimaglia
+- name: Aplicar configuraciones de interfaces de acceso a dispositivos de red
+  hosts: cisco_ios
+  gather_facts: false
+
+  vars_files:
+    - "{{ playbook_dir }}/modelo/modelo.yaml"
+
+  tasks:
+    - name: Aplicar configuración de interfaces de acceso
+      cisco.ios.ios_config:
+        src: "{{ playbook_dir }}/configs/{{ inventory_hostname }}_int_access.cfg"
+      register: apply_access_result
+      notify: Guardar configuracion
+
+  handlers:
+    - name: Guardar configuracion
+      cisco.ios.ios_config:
+        save_when: modified

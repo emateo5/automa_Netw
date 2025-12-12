@@ -1,0 +1,25 @@
+# Playbook para generar codigo utilizando templates Jinja2
+# By Ed Scrimaglia
+---
+- name: Generar codigo desde templates Jinja2 para interfaces de acceso
+  hosts: "{{ modelo.hosts_groups.access_switches }}"
+  gather_facts: false
+
+  vars_files:
+    - "{{ playbook_dir }}/modelo/modelo.yaml"
+
+  tasks:
+    - name: Defincion de variables locales
+      ansible.builtin.set_fact:
+        interfaces: "{{ modelo.infra_spec.devices[inventory_hostname].interfaces }}"
+
+    - name: Renderizar template Jinja2 para configurarcion de interfaces de acceso
+      ansible.builtin.template:
+        src: "{{ playbook_dir }}/templates/inter_access_cfg.j2"
+        dest: "{{ playbook_dir }}/configs/{{ inventory_hostname }}_int_access.cfg"
+        mode: "0644"
+      register: int_access_result
+
+    - name: Mostrar resultado de la generacion de configuracion de interfaces de acceso
+      ansible.builtin.debug:
+        var: int_access_result

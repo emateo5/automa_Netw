@@ -1,4 +1,4 @@
-# Curso de Automatización de Redes - UTN-FRC Academia de Cisco
+# Automatización de Redes - UTN-FRC Academia de Cisco
 
 **Autor:** Ed Scrimaglia  
 **Institución:** Universidad Tecnológica Nacional - Facultad Regional Córdoba  

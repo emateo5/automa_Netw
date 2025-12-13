@@ -11,8 +11,7 @@ Este proyecto implementa una solución avanzada de automatización de red que pe
 - **Proyecto**: Simulacro de Caso de Uso
 - **Versión**: 1.0
 - **Autor**: Ed Scrimaglia
-- **Fecha de Creación**: 2024-06-15
-- **Python Requerido**: >= 3.12
+- **Fecha de Creación**: 2024-25-15
 
 ## Arquitectura del Sistema
 
@@ -44,7 +43,7 @@ graph TD
 
 ## Estructura Detallada del Proyecto
 
-```
+```tree
 .
 ├── main.py                      # Script principal de orquestación
 ├── class_device_config.py       # Clase para gestión de dispositivos de red
@@ -178,7 +177,7 @@ modelo:
     proyecto: "Simulacro de Caso de Uso"
     version: "1.0"
     autor: "Ed Scrimaglia"
-    fecha_creacion: "2024-06-15"
+    fecha_creacion: "2025-06-15"
   
   infra_spec:
     devices:
@@ -305,7 +304,6 @@ dependencies = [
 - Dispositivos Cisco con SSH habilitado
 - Conectividad IP a dispositivos de gestión
 - Credenciales de acceso válidas
-- Python 3.12 o superior
 
 ## Instalación y Configuración
 
@@ -322,7 +320,7 @@ source .venv/bin/activate  # En Linux/macOS
 # .venv\Scripts\activate   # En Windows
 
 # Instalar dependencias
-pip install jinja2>=3.1.6 netmiko>=4.6.0
+uv add jinja2 netmiko
 ```
 
 ### 2. Configuración del modelo
@@ -397,7 +395,7 @@ python main.py
 
 El sistema proporciona feedback detallado:
 
-```
+```text
 -> Starting Network Automation Configuration Device process...
 -> Generating configuration files...
 Creating configuration file 'SW_Bld_A_vlan.cfg' using template 'vlans.j2' for device 'SW_Bld_A'
@@ -421,7 +419,7 @@ Configuration from 'SW_Bld_A_vlan.cfg' applied successfully to device 'SW_Bld_A'
 
 ### Archivo de VLANs (`SW_Bld_A_vlan.cfg`)
 
-```
+```conf
 !
 vlan 10
   name Ingenieria
@@ -436,7 +434,7 @@ vlan 30
 
 ### Archivo de Interfaces Trunk (`SW_Bld_A_int_trunk.cfg`)
 
-```
+```conf
 !
 interface GigabitEthernet0/1
   description Conexion a SW_CORE_1
@@ -525,7 +523,7 @@ output = net_conf.send_config_commands(connection, config_file=config_file)
 
 ### 1. **Error de Conexión SSH**
 
-```
+```text
 NetmikoTimeoutException: TCP connection to device failed
 ```
 
@@ -533,7 +531,7 @@ NetmikoTimeoutException: TCP connection to device failed
 
 ### 2. **Error de Autenticación**
 
-```
+```text
 NetmikoAuthenticationException: Authentication failed
 ```
 
@@ -541,7 +539,7 @@ NetmikoAuthenticationException: Authentication failed
 
 ### 3. **Error en Comando**
 
-```
+```text
 % Invalid input detected at '^' marker
 ```
 
@@ -549,7 +547,7 @@ NetmikoAuthenticationException: Authentication failed
 
 ### 4. **Archivo de Template No Encontrado**
 
-```
+```text
 TemplateNotFound: vlans.j2
 ```
 
@@ -577,4 +575,12 @@ La arquitectura modular y el uso de estándares de la industria (YAML, Jinja2, N
 5. **Observabilidad**: Logging detallado y medición de rendimiento
 6. **Confiabilidad**: Manejo robusto de errores y validaciones
 
-```Ed Scrimaglia```
+---
+
+## Licencia
+
+Proyecto educativo - UTN-FRC Academia Cisco - Network Automation Engineer Course
+
+---
+
+**Última actualización**: Diciembre 2025

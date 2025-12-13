@@ -459,8 +459,8 @@ ansible-inventory -i inventario.ini --list
 
 ## Licencia
 
-Este proyecto es de código abierto y está disponible para fines educativos.
+Proyecto educativo - UTN-FRC Academia Cisco - Network Automation Engineer Course
 
 ---
 
-**Última actualización:** 28 de noviembre de 2025
+**Última actualización**: Diciembre 2025

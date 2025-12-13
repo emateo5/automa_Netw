@@ -6,10 +6,10 @@ Este proyecto contiene una colección de scripts Python que demuestran el uso de
 
 ## Información del Proyecto
 
-- **Nombre**: ejemplo1
-- **Versión**: 0.1.0
-- **Descripción**: Primer ejemplo Netmiko
-- **Python requerido**: >= 3.12
+**Autor:** Ed Scrimaglia  
+**Versión:** 1.0  
+**Fecha de Creación:** 6 de Septiembre de 2025
+**Descripción**: Primer ejemplo Netmiko
 
 ## Dependencias
 
@@ -37,7 +37,7 @@ pip install -e .
 
 ## Estructura del Proyecto
 
-```
+```tree
 ejemplo1/
 ├── pyproject.toml          # Configuración del proyecto y dependencias
 ├── netmiko_clase.py        # Clase principal NetmikoInicial con métodos reutilizables
@@ -149,6 +149,7 @@ Implementa una clase Python que encapsula las funcionalidades más comunes de Ne
   2. `find_child_objects()`: Busca relaciones padre-hijo específicas
 
 **Comandos ejecutados:**
+
 - `show running-config`
 
 **Análisis realizado:**
@@ -335,4 +336,8 @@ La clase `NetmikoInicial` proporciona mensajes de error descriptivos para facili
 
 ## Licencia
 
-Este proyecto es de código abierto y está disponible para fines educativos.
+Proyecto educativo - UTN-FRC Academia Cisco - Network Automation Engineer Course
+
+---
+
+**Última actualización**: Diciembre 2025

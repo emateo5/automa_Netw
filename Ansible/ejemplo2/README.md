@@ -3,7 +3,7 @@
 **Autor:** Ed Scrimaglia  
 **Proyecto:** Estructuras de Programación - Ansible  
 **Versión:** 1.0  
-**Fecha de Creación:** 2025-11-28
+**Fecha de Creación:** 28 de noviembre de 2025
 
 ## Descripción General
 
@@ -18,7 +18,7 @@ Este proyecto es una colección de playbooks de Ansible diseñados para automati
 
 ## Estructura del Proyecto
 
-```
+```tree
 .
 ├── README.md                      # Este archivo
 ├── inventario.ini                 # Inventario de dispositivos de red
@@ -81,7 +81,7 @@ El inventario define cuatro grupos de dispositivos Cisco IOS:
 - Network OS: `cisco.ios.ios`
 - Método de escalada: `ansible.netcommon.enable`
 
-## 📊 Modelo de Datos
+## Modelo de Datos
 
 ### Estructura del Modelo (`modelo_datos/modelo_datos.yaml`)
 
@@ -311,17 +311,11 @@ Obtiene timestamps en diferentes zonas horarias.
 
 - `model.metadatos.time_zone`: Zona horaria del proyecto
 
-## 🚀 Guía de Uso
+## Guía de Uso
 
 ### Prerrequisitos
 
-1. **Ansible instalado:**
-
-   ```bash
-   pip install ansible
-   ```
-
-2. **Colecciones de Ansible:**
+1. **Colecciones de Ansible:**
 
    ```bash
    ansible-galaxy collection install cisco.ios
@@ -329,7 +323,7 @@ Obtiene timestamps en diferentes zonas horarias.
    ansible-galaxy collection install ansible.netcommon
    ```
 
-3. **Conectividad de red:**
+2. **Conectividad de red:**
    - Acceso SSH a los dispositivos definidos en el inventario
    - Credenciales correctas configuradas
 
@@ -472,8 +466,8 @@ ansible-galaxy collection install cisco.ios ansible.utils ansible.netcommon
 
 ## Licencia
 
-Este proyecto es de código abierto y está disponible para fines educativos.
+Proyecto educativo - UTN-FRC Academia Cisco - Network Automation Engineer Course
 
 ---
 
-**Última actualización:** 28 de noviembre de 2025
+**Última actualización**: Diciembre 2025

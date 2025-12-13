@@ -1,7 +1,7 @@
 [project]
 name = "sim-caso"
 version = "0.1.0"
-description = "Simulation case for network automation with Ansible"
+description = "Codificación en Ansible"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

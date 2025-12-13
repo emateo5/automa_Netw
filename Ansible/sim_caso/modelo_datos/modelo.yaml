@@ -33,7 +33,7 @@ modelo:
     proyecto: "Simulacro de Caso de Uso Ansible"
     version: "1.0"
     autor: "Ed Scrimaglia"
-    fecha_creacion: "2024-06-15"
+    fecha_creacion: "2025-12-12"
     time_zone: "America/Argentina/Buenos_Aires"
   hosts_groups:
     access_switches: cisco_ios

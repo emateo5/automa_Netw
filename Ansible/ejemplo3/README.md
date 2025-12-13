@@ -271,7 +271,8 @@ ansible_become_password: password
 ### Problema 1: Error de autenticación SSH
 
 **Error:**
-```
+
+```txt
 Failed to authenticate public key: Access denied for 'publickey'
 ```
 
@@ -298,7 +299,8 @@ ansible-playbook play_config_devices.yaml -i inventario/inventario.ini --vault-p
 ### Problema 3: Archivo vault-pass no encontrado
 
 **Error:**
-```
+
+```txt
 ERROR! The vault password file ./.vault-pass was not found
 ```
 
@@ -313,11 +315,13 @@ chmod 600 .vault-pass
 ### Problema 4: Módulo cisco.ios no encontrado
 
 **Error:**
-```
+
+```text
 ERROR! couldn't resolve module/action 'cisco.ios.ios_config'
 ```
 
 **Solución:**
+
 ```bash
 ansible-galaxy collection install cisco.ios
 ```
@@ -388,8 +392,8 @@ ansible-galaxy collection install cisco.ios
 
 ## Licencia
 
-Este proyecto es de uso educativo para el curso de Network Automation Engineer - UTN-FRC.
+Proyecto educativo - UTN-FRC Academia Cisco - Network Automation Engineer Course
 
-## Autor
+---
 
-**Ed Scrimaglia**
+**Última actualización**: Diciembre 2025

@@ -1,7 +1,7 @@
 [project]
 name = "ejemplo2"
 version = "0.1.0"
-description = "ejemplos de netmiko conf commands"
+description = "Netmiko para configiuración de dispositivos de red"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

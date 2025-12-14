@@ -11,7 +11,7 @@ Este proyecto implementa una solución avanzada de automatización de red que pe
 - **Proyecto**: Simulacro de Caso de Uso
 - **Versión**: 1.0
 - **Autor**: Ed Scrimaglia
-- **Fecha de Creación**: 15 de Junio del 2025
+- **Fecha de Creación**: 15 de Junio de 2025
 
 ## Arquitectura del Sistema
 

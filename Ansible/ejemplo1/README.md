@@ -2,7 +2,7 @@
 
 **Autor:** Ed Scrimaglia  
 **Versión:** 0.1.0  
-**Descripción:** Manipulación y uso de variables en Ansible
+**Descripción:** Manipulación y uso de variables en Ansible  
 **Fecha de Creación:** 28 de noviembre de 2025
 
 ## Tabla de Contenidos

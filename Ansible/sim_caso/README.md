@@ -2,7 +2,7 @@
 
 **Autor:** Ed Scrimaglia  
 **Versión:** 1.0  
-**Fecha de Creación:** 12 de Dic de 2025  
+**Fecha de Creación:** 12 de Diciembre de 2025  
 **Proyecto:** Simulación Caso de Uso integral
 
 ---

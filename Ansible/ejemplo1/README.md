@@ -3,6 +3,7 @@
 **Autor:** Ed Scrimaglia  
 **Versión:** 0.1.0  
 **Descripción:** Manipulación y uso de variables en Ansible
+**Fecha de Creación:** 28 de noviembre de 2025
 
 ## Tabla de Contenidos
 
@@ -46,7 +47,7 @@ ansible-galaxy collection install ansible.netcommon
 
 ## Estructura del Proyecto
 
-```
+```tree
 ejemplo1/
 ├── pyproject.toml              # Definición del proyecto y dependencias
 ├── inventario.ini              # Inventario de dispositivos de red
@@ -72,16 +73,16 @@ El archivo `inventario.ini` define la infraestructura de red organizada en grupo
 ### Grupos Definidos
 
 - **`cisco_ios_access_bsas`**: Switches de acceso en Buenos Aires
-  - SW-Bld_A (10.2.0.103)
+  - SW-Bld_A (10.2.0.10X)
 
 - **`cisco_ios_access_cba`**: Switches de acceso en Córdoba
-  - SW-Bld_B (10.2.0.104)
+  - SW-Bld_B (10.2.0.10X)
 
 - **`cisco_ios_datacenter`**: Switches del datacenter
-  - SW-Data_Center (10.2.0.105)
+  - SW-Data_Center (10.2.0.10X)
 
 - **`cisco_ios_core`**: Switches de core
-  - SW-CORE_1 (10.2.0.101)
+  - SW-CORE_1 (10.2.0.10X)
 
 - **`cisco_ios`**: Grupo padre que agrupa todos los dispositivos Cisco IOS
 
@@ -89,7 +90,7 @@ El archivo `inventario.ini` define la infraestructura de red organizada en grupo
 
 ```ini
 [all:vars]
-ansible_connection=ansible.netcommon.network_cli.network_cli
+ansible_connection=ansible.netcommon.network_cli
 ```
 
 ## Modelo de Datos
@@ -112,7 +113,7 @@ modelo:
     devices:
       - hostname: "SW_Bld_A"
         management:
-          ip: "10.2.0.103"
+          ip: "10.2.0.10X"
           interface: "GigabitEthernet0/0"
         connection:
           device_type: "cisco_ios"
@@ -310,17 +311,7 @@ cd ejemplo1
 Usando `uv` (recomendado):
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install -e .
-```
-
-O usando `pip`:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
+uv sync
 ```
 
 ### 3. Instalar Colecciones Ansible

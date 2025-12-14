@@ -166,6 +166,7 @@ Esquema de validación que define:
 - Tipos de datos permitidos
 - Propiedades requeridas vs opcionales
 - Validaciones de formato
+- el modelo de validación debe ser revisado y ajustado si fuese necesario
 
 ---
 
@@ -232,7 +233,7 @@ Editar `modelo_datos/modelo.yaml`:
 devices:
   SW-Nuevo:
     management:
-      ip: "10.2.0.106"
+      ip: "10.2.0.10X"
       interface: "GigabitEthernet0/0"
     interfaces:
       - name: "GigabitEthernet0/1"
@@ -251,7 +252,7 @@ Editar `inventario/inventario.ini`:
 
 ```ini
 [cisco_ios_nuevo_grupo]
-SW-Nuevo ansible_host=10.2.0.106
+SW-Nuevo ansible_host=10.2.0.10X
 ```
 
 ### Crear Nuevos Templates

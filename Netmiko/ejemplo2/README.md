@@ -95,7 +95,7 @@ Clase principal que encapsula todas las operaciones de configuración de disposi
 ```python
 datos_device = {
     'device_type': 'cisco_ios',
-    'host': '10.2.0.103',
+    'host': '10.2.0.10X',
     'username': 'netsim',
     'password': 'password',
     'ssh_config_file': '~/.ssh/config'
@@ -109,7 +109,7 @@ datos_config = {
     'interfaces': [
         {
             'name': 'loopback1',
-            'ip': '10.1.0.1',
+            'ip': '10.1.0.X',
             'mask': '255.255.255.255',
             'description': 'Loopback 1',
             'shutdown': False

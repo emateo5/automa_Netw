@@ -1,4 +1,4 @@
-# Proyecto Ansible - Automatización de Configuración de Red Cisco IOS
+# Automatización de Configuración de redes con Ansible
 
 **Autor:** Ed Scrimaglia  
 **Versión:** 1.0  
@@ -40,7 +40,7 @@ El proyecto gestiona una infraestructura de red que incluye:
 
 ## Estructura del Proyecto
 
-```
+```tree
 ejemplo4/
 ├── README.md                          # Este archivo
 ├── pyproject.toml                     # Dependencias del proyecto (Python/Ansible)
@@ -139,7 +139,7 @@ interface {{ interface.name }}
 
 **Salida generada** (ejemplo para SW-Bld_A):
 
-```
+```text
 !
 interface GigabitEthernet1/1
   description Conexion a PC_ING_1
@@ -272,7 +272,7 @@ ansible_become_password: password
 
 **Error:**
 
-```txt
+```text
 Failed to authenticate public key: Access denied for 'publickey'
 ```
 
@@ -300,7 +300,7 @@ ansible-playbook play_config_devices.yaml -i inventario/inventario.ini --vault-p
 
 **Error:**
 
-```txt
+```text
 ERROR! The vault password file ./.vault-pass was not found
 ```
 
@@ -330,7 +330,7 @@ ansible-galaxy collection install cisco.ios
 
 ### 1. Infrastructure as Code (IaC)
 
-- Toda la configuración de red está definida en código
+- Toda la configuración de red está definida en el modelo de datos
 - Versionable con Git
 - Reproducible en cualquier entorno
 
@@ -359,7 +359,7 @@ ansible-galaxy collection install cisco.ios
 
 ## Flujo de Trabajo del Proyecto
 
-```
+```text
 ┌──────────────────┐
 │  modelo.yaml     │  ← Source of Truth
 │  (Datos)         │

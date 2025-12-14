@@ -3,7 +3,7 @@
 **Autor:** Ed Scrimaglia  
 **Institución:** Universidad Tecnológica Nacional - Facultad Regional Córdoba  
 **Curso:** Network Automation Engineer  
-**Fecha de Creación:** Marzo 2025  
+**Fecha de Creación:** 2 de Diciembre del 2025  
 
 ---
 
@@ -19,7 +19,7 @@ Este repositorio contiene el material práctico completo del curso de Automatiza
 
 ```tree
 Codigo/
-├── Python Basics/          # Fundamentos de programación Python
+├── Python_Basics/          # Fundamentos de programación Python
 ├── json/                   # Manipulación de archivos JSON
 ├── yaml/                   # Manipulación de archivos YAML
 ├── Modelado/              # Modelado y validación de datos → README.md
@@ -42,7 +42,7 @@ Codigo/
 
 ### 1. Python Basics
 
-**Ubicación:** [`Python Basics/`](Python%20Basics/)
+**Ubicación:** [`Python Basics/`](Python_Basics/)
 
 **Objetivo:** Fundamentos de Python para automatización: clases, módulos, estructuras de datos.
 
@@ -112,8 +112,6 @@ Codigo/
 
 **Scripts:** `netmiko_eje1.py` (básicos), `netmiko_eje2.py` (TextFSM), `netmiko_eje3.py` (optimización), `netmiko_eje4.py` (CiscoConfParse), `integrador1.py`
 
-**Dependencias:** `netmiko >= 4.6.0`, `ciscoconfparse >= 1.9.52`
-
 #### Ejemplo 2: Configuración Avanzada
 
 **Ubicación:** [`Netmiko/ejemplo2/`](Netmiko/ejemplo2/) → **[Ver README completo](Netmiko/ejemplo2/README.md)**
@@ -121,8 +119,6 @@ Codigo/
 **Temas:** Configuración con `send_config_set()` y `send_config_from_file()`, templates Jinja2, comandos multilínea, validación de errores, clase `ConfigurationClass`.
 
 **Scripts:** `netmiko_eje1.py` a `netmiko_eje4.py`, `integrador2.py`, templates en `templates/`
-
-**Dependencias:** `netmiko >= 4.6.0`, `jinja2 >= 3.1.6`
 
 #### Simulacro: Implementación Profesional
 
@@ -152,7 +148,6 @@ Codigo/
 
 **Componentes:** `inventario.ini`, `modelo_datos.yaml`, `validador_modelo.json`, playbooks 1-3, `host_vars/`, `group_vars/`
 
-**Dependencias:** `ansible >= 12.2.0`, `jsonschema >= 4.25.1`  
 **Colecciones:** `cisco.ios`, `ansible.netcommon`
 
 #### Ejemplo 2: Estructuras de Programación

@@ -20,19 +20,19 @@ El proyecto utiliza las siguientes bibliotecas principales:
 
 Estas dependencias se encuentran definidas en el archivo `pyproject.toml`.
 
-## Instalación
-
-1. Asegúrate de tener Python 3.12 o superior instalado
-2. Instala las dependencias del proyecto:
+### 1. Clonar el Repositorio
 
 ```bash
-pip install netmiko>=4.6.0 ciscoconfparse>=1.9.52
+git clone <repository-url>
+cd ejemplo1
 ```
 
-O si utilizas un gestor de paquetes compatible con `pyproject.toml`:
+### 2. Configurar Entorno Python
+
+Usando `uv` (recomendado):
 
 ```bash
-pip install -e .
+uv sync
 ```
 
 ## Estructura del Proyecto
@@ -210,7 +210,7 @@ device = {
 
 ## Uso
 
-### Ejecutar ejemplos individuales:
+### Ejecutar ejemplos individuales
 
 ```bash
 # Ejemplo 1: Comandos básicos
@@ -229,7 +229,7 @@ python netmiko_eje4.py
 python integrador1.py
 ```
 
-### Usar la clase en tus propios scripts:
+### Usar la clase en tus propios scripts
 
 ```python
 from netmiko_clase import NetmikoInicial

@@ -94,7 +94,7 @@ metadatos:
   proyecto: "Estructuras de programación de Ansible"
   version: "1.0"
   autor: "Ed Scrimaglia"
-  fecha_creacion: "2024-06-15"
+  fecha_creacion: "2025-11-28"
   time_zone: "America/Argentina/Buenos_Aires"
 ```
 
@@ -424,10 +424,10 @@ Si ves errores de conexión, verifica:
 
 ```bash
 # Probar conectividad
-ping 10.2.0.103
+ping 10.2.0.10X
 
 # Probar SSH manual
-ssh netsim@10.2.0.103
+ssh netsim@10.2.0.10X
 
 # Verificar credenciales en inventario
 ansible-inventory -i inventario.ini --list

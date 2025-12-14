@@ -11,7 +11,7 @@ Este proyecto implementa una solución avanzada de automatización de red que pe
 - **Proyecto**: Simulacro de Caso de Uso
 - **Versión**: 1.0
 - **Autor**: Ed Scrimaglia
-- **Fecha de Creación**: 2024-25-15
+- **Fecha de Creación**: 15 de Junio del 2025
 
 ## Arquitectura del Sistema
 
@@ -273,8 +273,8 @@ El sistema configura una red con:
 
 ### Dispositivos
 
-1. **SW_Bld_A** (10.2.0.103)
-2. **SW_Bld_B** (10.2.0.104)
+1. **SW_Bld_A** (10.2.0.10X)
+2. **SW_Bld_B** (10.2.0.10X)
 
 ### VLANs (en ambos switches)
 
@@ -305,22 +305,19 @@ dependencies = [
 - Conectividad IP a dispositivos de gestión
 - Credenciales de acceso válidas
 
-## Instalación y Configuración
-
-### 1. Preparación del entorno
+### 1. Clonar el Repositorio
 
 ```bash
-# Clonar repositorio
-git clone <repository_url>
+git clone <repository-url>
 cd sim_caso
+```
 
-# Crear entorno virtual
+### 2. Configurar Entorno Python
+
+Usando `uv` (recomendado):
+
+```bash
 uv sync
-source .venv/bin/activate  # En Linux/macOS
-# .venv\Scripts\activate   # En Windows
-
-# Instalar dependencias
-uv add jinja2 netmiko
 ```
 
 ### 2. Configuración del modelo

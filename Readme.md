@@ -19,9 +19,9 @@ Este repositorio contiene el material práctico completo del curso de Automatiza
 
 ```tree
 Codigo/
-├── Python_Basics/          # Fundamentos de programación Python
-├── json/                   # Manipulación de archivos JSON
-├── yaml/                   # Manipulación de archivos YAML
+├── Python_Basics/         # Fundamentos de programación Python
+├── json/                  # Manipulación de archivos JSON
+├── yaml/                  # Manipulación de archivos YAML
 ├── Modelado/              # Modelado y validación de datos → README.md
 ├── Netmiko/               # Automatización con Netmiko
 │   ├── ejemplo1/          # Comandos básicos y TextFSM → README.md

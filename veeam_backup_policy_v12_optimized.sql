@@ -36,9 +36,7 @@ WITH job_details AS (
         j.schedule_enabled,
         j.target_host_id,
         j.repository_id,
-        j.is_deleted,
-        j.creation_time,
-        j.last_modified_time
+        j.is_deleted
     FROM
         public.bjobs j
     WHERE
@@ -184,8 +182,6 @@ SELECT
     r.repositorio_nombre,
     r.repositorio_ruta,
     r.repositorio_tipo,
-    j.creation_time,
-    j.last_modified_time,
     -- Columnas adicionales de auditoría
     CASE
         WHEN rc.gfs_enabled THEN 'GFS Configurado'
